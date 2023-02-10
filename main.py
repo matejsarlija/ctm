@@ -1,16 +1,21 @@
-from random import randint
-import math
-
-x = 3
-y = math.sqrt(x)
-z = pow(y, 2)
-print(z)
-#print("Square root of -1 is ", math.sqrt(-1))
-print("The cosine of pi is ", math.cos(math.pi))
-print("In python .math, e is ", math.e)
-print("the log of e is", math.log(math.e))
-
 
 f = open("input2.txt")
 lines = list(f)
-print(lines)
+#print(lines)
+#print([x.split() for x in lines])
+def makeInverseIndex(strlist):
+    ourDict = {x:set(y.split()) for x,y in enumerate(strlist)}
+    inverseIndexDict = {}
+
+    for x in ourDict.items():
+        for y in x[1]:
+            inverseIndexDict[y] = x[0]
+
+    return inverseIndexDict
+
+print(makeInverseIndex(lines))
+
+def orSearch(inverseIndex, query):
+    return {inverseIndex[x] for x in query if x in inverseIndex}
+
+print(orSearch(makeInverseIndex(lines), ['ali', 'matej']))
