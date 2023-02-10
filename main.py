@@ -1,45 +1,26 @@
-import requests
-from bs4 import BeautifulSoup
-from datetime import date
-from calendar import monthrange
+from random import randint
+import math
 
-myStreet = "Kumičićeva"
+x = 3
+y = math.sqrt(x)
+z = pow(y, 2)
+print(z)
+#print("Square root of -1 is ", math.sqrt(-1))
+print("The cosine of pi is ", math.cos(math.pi))
+print("In python .math, e is ", math.e)
+print("the log of e is", math.log(math.e))
 
-# todays date info
-today = date.today()
-
-# number for todays date
-today_num = today.day
-# so this will work until months are single digit for now :)
-today_month_num = today.month
-
-# get year
-today_year_num = today.year
-
-# programmatically get the number of days in current month
-days_in_this_month = monthrange(today_year_num, today_month_num)[1]
-
-if len(str(today_month_num)) == 1:
-    today_month_num = str(today_month_num).zfill(2)
+def movie_review(str_movie):
+    print('Regarding %s - %s'
+          %(str_movie, {x:y for (x,y) in enumerate(["See it!", "A gem!", "Ideological claptrap!"])}[randint(0,2)],))
 
 
-#if today_num > days_in_this_month:
+movie_review("Matrix")
 
-url = f'https://www.hep.hr/ods/bez-struje/19?dp=rijeka&el=RI&datum={today_num}.{today_month_num}.2023'
-response = requests.get(url)
-print(url)
+def quadratic(a,b,c):
+    discriminant = math.sqrt(b*b - 4*a*c)
+    return ((-b + discriminant)/(2*a), (-b -discriminant)/(2*a))
 
-soup = BeautifulSoup(response.text, 'html.parser')
-
-street_divs = soup.find_all('div', class_='ulica')
-
-if len(street_divs) == 0:
-    print("Nothing scheduled for today")
-else:
-    for div in street_divs:
-        print(div.text)
-
-    if myStreet in div.text:
-        print(myStreet + " je bez struje danas")
-
-
+f = open("input2.txt")
+lines = list(f)
+print(lines)
