@@ -15,13 +15,21 @@ def makeInverseIndex(strlist):
 
     return inverseIndexDict
 
-print(makeInverseIndex(lines))
+our_index = makeInverseIndex(lines)
+print(our_index)
+
 
 def orSearch(inverseIndex, query):
+    result_dict = set()
+
     for x in query:
         if x in inverseIndex:
-            return inverseIndex.get(x)
-def andSearch(inverseIndex, query):
+            result_dict.update(inverseIndex.get(x))
+
+    return result_dict
+
+
+def and_search(inverseIndex, query):
     return {inverseIndex[x] for x in query if x in inverseIndex}
 
-print(orSearch(makeInverseIndex(lines), ['matej', 'je']))
+print(orSearch(our_index, ['matej', 'je']))
