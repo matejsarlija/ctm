@@ -40,7 +40,7 @@ def mySum(L):
 # input: list of numbers
 # output: product of numbers in the list
 def myProduct(L):
-    current = 0
+    current = 1
     for x in L:
         current *= x
     return current
@@ -70,4 +70,8 @@ def myConcat(L):
 # Problem 1.7.8: myUnion(L)
 # input: list of sets
 # output: the union of all sets in L.
-
+def myUnion(L):
+    current = []
+    for x in L:
+        current.append(x)
+    return current
