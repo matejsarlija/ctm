@@ -46,3 +46,4 @@ def and_search(inverse_index, query):
 
 
 print(and_search(our_index, ['matej', 'ok']))
+
