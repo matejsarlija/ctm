@@ -25,3 +25,49 @@ def my_lists(L):
 # example: given f = {0:’a’, 1:’b’} and g = {’a’:’apple’, ’b’:’banana’}, return {0:’apple’, 1:’banana’}
 def my_function_composition(f, g):
     return {a:d for (a,b),(c,d) in zip(f.items(), g.items())}
+
+
+# Problem 1.7.4: mySum(L)
+# Input: list of numbers
+# Output: sum of numbers in the list
+def mySum(L):
+    current = 0
+    for x in L:
+        current += x
+    return current
+
+# Problem 1.7.5: Product(L)
+# input: list of numbers
+# output: product of numbers in the list
+def myProduct(L):
+    current = 0
+    for x in L:
+        current *= x
+    return current
+
+
+# Problem 1.7.6: myMin(L)
+# input: list of numbers
+# output: minimum number in the list
+def myMin(L):
+    current = 0
+    for x in L:
+        if x < current:
+            current = x
+    return current
+
+
+# Problem 1.7.7: myConcat(L)
+# input: list of strings
+# output: concatenation of all the strings in L
+def myConcat(L):
+    current = ""
+    for x in L:
+        current += x
+    return current
+
+
+# Problem 1.7.8: myUnion(L)
+# input: list of sets
+# output: the union of all sets in L.
+
