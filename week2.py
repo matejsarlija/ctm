@@ -1,3 +1,5 @@
+import matplotlib.pyplot as plt
+
 def my_filter(L, num):
     new_list = []
     for x in L:
@@ -75,3 +77,16 @@ def myUnion(L):
     for x in L:
         current.append(x)
     return current
+
+
+# Problem 1.7.12: Write a procedure transform(a,b, L) with the following spec:
+# • input: complex numbers a and b, and a list L of complex numbers
+# • output: the list of complex numbers obtained by applying f (z) = az + b to each complex
+# number in L
+def transform(a, b, L):
+    map(lambda x: a*x + b, L)
+
+
+S = {2 + 2j, 3 + 2j, 1.75 + 1j, 2 + 1j, 2.25 + 1j, 2.5 + 1j, 2.75 + 1j, 3 + 1j, 3.25 + 1j}
+
+
