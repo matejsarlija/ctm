@@ -84,9 +84,16 @@ def myUnion(L):
 # • output: the list of complex numbers obtained by applying f (z) = az + b to each complex
 # number in L
 def transform(a, b, L):
-    map(lambda x: a*x + b, L)
+    output = map(lambda x: a*x + b, L)
+    return set(output)
 
 
 S = {2 + 2j, 3 + 2j, 1.75 + 1j, 2 + 1j, 2.25 + 1j, 2.5 + 1j, 2.75 + 1j, 3 + 1j, 3.25 + 1j}
 
+#plt.scatter([pt.real for pt in S], [pt.imag for pt in S])
+#plt.show()
+
+new_set = transform(2j, 1+1j, S)
+plt.scatter([pt.real for pt in new_set], [pt.imag for pt in new_set])
+plt.show()
 
