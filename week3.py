@@ -19,21 +19,14 @@ def segment(pt1, pt2):
 
     return points
 
-
-a = [3, 5]
-b = [0.5, 1]
-# print([[x, y] for x, y in zip(np.arange(0, 1, .01), list(reversed(np.arange(0, 1, .01))))])
-
-# points = segment(a, b)
-# print(points)
-#
-# x_coords, y_coords = zip(*points)
-# plt.plot(x_coords, y_coords, 'o')
-# plt.show()
-
-
 # Quiz 2.7.1: Write a procedure zero_vec(D) with the following spec:
 # • input: a set D
 # • output: an instance of Vec representing a D-vector all of whose entries have value zero
 def zero_vec(D):
     return Vec(D, {x:0 for x in D})
+
+
+v = Vec({'A','B','C'}, {'A':1})
+x = v.getitem('A')
+
+print(x)
