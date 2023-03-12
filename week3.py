@@ -44,11 +44,19 @@ def add(u, v):
     return Vec(u.D, {x:getitem(u, x) + getitem(v, x) for x in v.D})
 
 
+# Quiz 2.7.5: Write a Python procedure neg(v) with the following spec:
+# • input: an instance v of Vec
+# • output: a dictionary representing the negative of v
+def neg(v):
+    return scalar_mul(v, -1)
+
+
 v = Vec({'A','B','C'}, {'A':1, 'B':2})
 u = Vec(v.D, {'A':5., 'C':10.})
 z = Vec({'Z'}, {'Z':1})
 x = getitem(v, 'A')
 #print((scalar_mul(v, 3)).f)
-print((add(z, v)).f)
+#print((add(z, v)).f)
+print(neg(v).f)
 
 #print(x)
