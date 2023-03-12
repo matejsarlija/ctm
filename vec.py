@@ -8,5 +8,9 @@ class Vec:
 
     def getitem(self, d):
         return self.f[d] if d in self.f else 0
+    
+    
+
+
 
 

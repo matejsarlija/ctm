@@ -25,8 +25,14 @@ def segment(pt1, pt2):
 def zero_vec(D):
     return Vec(D, {x:0 for x in D})
 
+# Quiz 2.7.3: Write a procedure scalar_mul(v, alpha) with the following spec:
+# • input: an instance of Vec and a scalar alpha
+# • output: a new instance of Vec that represents the scalar-vector product alpha times v.
+def scalar_mul(v, alpha):
+    return Vec(v.D, {x:y*alpha for (x,y) in v.f.items()})
 
-v = Vec({'A','B','C'}, {'A':1})
+v = Vec({'A','B','C'}, {'A':1, 'B':2, 'C':4})
 x = v.getitem('A')
+print((scalar_mul(v, 3)).f)
 
-print(x)
+#print(x)
