@@ -51,6 +51,14 @@ def neg(v):
     return scalar_mul(v, -1)
 
 
+# Quiz 2.9.4: Write a procedure list_dot(u, v) with the following spec:
+# • input: equal-length lists u and v of field elements
+# • output: the dot-product of u and v interpreted as vectors
+# Use the sum(·) procedure together with a list comprehension.
+def list_dot(u, v):
+    return sum([x*y for (x,y) in zip(u,v)])
+
+
 v = Vec({'A','B','C'}, {'A':1, 'B':2})
 u = Vec(v.D, {'A':5., 'C':10.})
 z = Vec({'Z'}, {'Z':1})
