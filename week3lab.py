@@ -41,7 +41,36 @@ def most_similar(sen, voting_dict):
             out_dict[dot_dot] = x
     return out_dict[max(out_dict)]
 
+# Task 2.12.4: Write a very similar procedure least similar(sen, voting dict) that
+# returns the name of the senator whose voting record agrees the least with the senator whose
+# name is sen.
+def least_similar(sen, voting_dict):
+    out_dict = {}
+    for x in voting_dict.keys():
+        if sen != x:
+            dot_dot = list_dot(voting_dict[sen], voting_dict[x])
+            out_dict[dot_dot] = x
+    return out_dict[min(out_dict)]
+
+
+"""
+Let's also fish out a set of democrats
+"""
+democrats = [x.split()[0] for x in mylist if x.split()[1] == 'D']
+
+# Task 2.12.7: Write a procedure find average similarity(sen, sen set, voting dict)
+# that, given the name sen of a senator, compares that senator’s voting record to the voting
+# records of all senators whose names are in sen set, computing a dot-product for each, and
+# then returns the average dot-product.
+# Use your procedure to compute which senator has the greatest average similarity with
+# the set of Democrats (you can extract this set from the input file).
+def find_average_similarity(sen, sen_set, voting_dict):
+    pass
+
+
 senators = senator_votes(mylist)
 #print(senator_votes(mylist).keys())
 #print(compare('Bond', 'Bayh', senator_votes(mylist)))
-print(most_similar('Bond', senators ))
+#print(most_similar('Bond', senators ))
+#print(least_similar('Bond', senators ))
+print(democrats)
