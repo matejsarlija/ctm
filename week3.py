@@ -59,6 +59,26 @@ def list_dot(u, v):
     return sum([x*y for (x,y) in zip(u,v)])
 
 
+# Quiz 2.9.15: Write a procedure dot_product_list(needle,haystack) with the following
+# spec:
+# • input: a short list needle and a long list haystack, both containing numbers
+# • output: a list of length len(haystack)-len(needle) such that entry i of the output list
+# equals the dot-product of the needle with the equal-length sublist of haystack starting at
+# position i
+# Your procedure should use a comprehension and use the procedure list_dot(u,v) from Quiz 2.9.4.
+# Hint: you can use slices as described in Section 0.5.5.
+def dot_product_list(needle, haystack):
+    s = len(needle)
+    return [list_dot(needle, haystack[i:i+s]) for i in range(len(haystack)-s)]
+
+# Quiz 2.10.1: Write a procedure list2vec(L) with the following spec:
+# • input: a list L of field elements
+# • output: an instance v of Vec with domain {0, 1, 2, . . . , len(L) − 1} such that v[i] = L[i]
+# for each integer i in the domain
+def list2vec(L):
+    return Vec(set(range(len(L))), {x:y for (x,y) in enumerate(L)})
+
+
 v = Vec({'A','B','C'}, {'A':1, 'B':2})
 u = Vec(v.D, {'A':5., 'C':10.})
 z = Vec({'Z'}, {'Z':1})
