@@ -53,6 +53,9 @@ def least_similar(sen, voting_dict):
     return out_dict[min(out_dict)]
 
 
+# A list of all the senator from the file
+senators = senator_votes(mylist)
+
 """
 Let's also fish out a set of democrats
 """
@@ -65,12 +68,34 @@ democrats = [x.split()[0] for x in mylist if x.split()[1] == 'D']
 # Use your procedure to compute which senator has the greatest average similarity with
 # the set of Democrats (you can extract this set from the input file).
 def find_average_similarity(sen, sen_set, voting_dict):
-    pass
+    out_list = []
+
+    for x in sen_set:
+        if x != sen:
+            dot_dot = list_dot(voting_dict[sen], voting_dict[x])
+            out_list.append(dot_dot)
+    return sum(out_list)/len(out_list)
 
 
-senators = senator_votes(mylist)
 #print(senator_votes(mylist).keys())
 #print(compare('Bond', 'Bayh', senator_votes(mylist)))
 #print(most_similar('Bond', senators ))
 #print(least_similar('Bond', senators ))
-print(democrats)
+#print(democrats)
+
+similar_to_democrats = {}
+for x in senators.keys():
+    sim = find_average_similarity(x, democrats, senators)
+    print(sim)
+    similar_to_democrats[sim] = x
+
+
+for x in similar_to_democrats.items():
+    print(x)
+
+# omg it's Biden
+print("The senator most similar to democrats is ", similar_to_democrats[max(similar_to_democrats)], " With a score of", max(similar_to_democrats) )
+
+
+
+print("Bayh sim is ", find_average_similarity('Bayh', democrats, senators))
