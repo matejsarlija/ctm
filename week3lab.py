@@ -83,15 +83,16 @@ Add two vectors
 def addn(u, v):
     return [u[i]+v[i] for i in range(len(u))]
 
-
-# Task 2.12.8: Write a procedure find average record(sen set, voting dict) that,
-# given a set of names of senators, finds the average voting record. That is, perform vector
-# addition on the lists representing their voting records, and then divide the sum by the number
-# of vectors. The result should be a vector.
-# Use this procedure to compute the average voting record for the set of Democrats, and
-# assign the result to the variable average Democrat record. Next find which senator’s
-# voting record is most similar to the average Democrat voting record. Did you get the same
-# result as in Task 2.12.7? Can you explain?
+"""
+Task 2.12.8: Write a procedure find average record(sen set, voting dict) that,
+given a set of names of senators, finds the average voting record. That is, perform vector
+addition on the lists representing their voting records, and then divide the sum by the number
+of vectors. The result should be a vector.
+Use this procedure to compute the average voting record for the set of Democrats, and
+assign the result to the variable average Democrat record. Next find which senator’s
+voting record is most similar to the average Democrat voting record. Did you get the same
+result as in Task 2.12.7? Can you explain?
+"""
 def find_average_record(sen_set, voting_dict):
     voting_dict_democrat_values = [voting_dict[x] for x in sen_set]
     result_vec = [0] * len(voting_dict[sen_set[0]])
@@ -126,15 +127,17 @@ print(max(senators_avg_dem), senators_avg_dem[max(senators_avg_dem)])
 #print(least_similar('Bond', senators ))
 #print(democrats)
 
-# similar_to_democrats = {}
-# for x in senators.keys():
-#     sim = find_average_similarity(x, democrats, senators)
-#     print(sim)
-#     similar_to_democrats[sim] = x
+"""
+similar_to_democrats = {}
+for x in senators.keys():
+    sim = find_average_similarity(x, democrats, senators)
+    print(sim)
+    similar_to_democrats[sim] = x
 
 
-# for x in similar_to_democrats.items():
-#     print(x)
+for x in similar_to_democrats.items():
+    print(x)
+"""
 
 # omg it's Biden
 #print("The senator most similar to democrats is ", similar_to_democrats[max(similar_to_democrats)], " With a score of", max(similar_to_democrats) )
