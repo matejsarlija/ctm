@@ -12,7 +12,7 @@ def getitem(v,k):
     0
     """
     assert k in v.D
-    pass
+    return v.f[k] if k in v.D else None
 
 def setitem(v,k,val):
     """
@@ -32,7 +32,7 @@ def setitem(v,k,val):
     0
     """
     assert k in v.D
-    pass
+    v.f['k'] = val
 
 def equal(u,v):
     """
@@ -68,12 +68,13 @@ def equal(u,v):
     False
     """
     assert u.D == v.D
-    pass
+
+
 
 def add(u,v):
     """
     Returns the sum of the two vectors.
-    
+
     Consider using brackets notation u[...] and v[...] in your procedure
     to access entries of the input vectors.  This avoids some sparsity bugs.
 
