@@ -12,7 +12,7 @@ def getitem(v,k):
     0
     """
     assert k in v.D
-    return v.f[k] if k in v.D else None
+    return v.f[k] if k in v.D else 0
 
 def setitem(v,k,val):
     """
@@ -32,7 +32,7 @@ def setitem(v,k,val):
     0
     """
     assert k in v.D
-    v.f['k'] = val
+    v.f[k] = val
 
 def equal(u,v):
     """
@@ -68,6 +68,22 @@ def equal(u,v):
     False
     """
     assert u.D == v.D
+    if isinstance(u, Vec) and isinstance(v, Vec):
+        for x in u.D:
+            if x not in v.D:
+                return False
+
+        for x in u.f:
+            if u.f[x] > 0:
+                if u.f[x] != v.f[x]:
+                    return False
+            elif u.f[x] == 0:
+                if x not in v.D:
+                    return False
+
+        return True
+
+    return False
 
 
 
@@ -105,8 +121,7 @@ def add(u,v):
     >>> b + Vec({'a','e','i','o','u'}, {}) == b
     True
     """
-    assert u.D == v.D
-    pass
+    return Vec(u.D, {u.f[x] + v.f[x] for x in u.D})
 
 def dot(u,v):
     """
